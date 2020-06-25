@@ -1,0 +1,54 @@
+<table class="table table-hover" *ngIf="hayRegistros(); else sinproductos">
+  <thead class="thead-dark">
+    <tr>
+      <th>Id</th>
+      <th>Imagen</th>
+      <th>Nombre</th>
+      <th>Marca</th>
+      <th>Cantidad</th>
+      <th>Precio</th>
+      <th>Editar</th>
+      <th>Eliminar</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let producto of lista">
+      <td>{{producto.id}}</td>
+      <td>
+        <img>
+      </td>
+      <td>{{producto.nombre}}</td>
+      <td>{{producto.marca}}</td>
+      <td>{{producto.cantidad}}</td>
+      <td>{{producto.precio}}</td>
+      <td><button class="btn btn-secondary" (click)="mostrar(producto.id)">Seleccionar</button></td>
+      <td><button class="btn btn-danger" (click)="eliminar(producto.id)">Borrar</button></td>
+    </tr>
+  </tbody>
+</table>
+<ng-template #sinproductos><p>No hay productos</p></ng-template>
+<hr>
+<form method="post" enctype="multipart/form-data">
+  <div class="form-group">
+    <label for="21">Nombre</label>
+    <input type="text" [(ngModel)]="prod.nombre" class="form-control" id="21">
+  </div>
+  <div class="form-group">
+    <label for="22">Marca</label>
+    <input type="text" [(ngModel)]="prod.marca" class="form-control" id="22">
+  </div>
+  <div class="form-group">
+    <label for="23">Cantidad</label>
+    <input type="number" [(ngModel)]="prod.cantidad" class="form-control" id="23">
+  </div>
+  <div class="form-group">
+    <label for="24">Precio</label>
+    <input type="number" step="any" [(ngModel)]="prod.precio" class="form-control" id="24">
+  </div>
+  <div class="form-group">
+    <label for="25">Imagen</label>
+    <input type="file" class="form-control" id="25" (change)="fileChange($event)">
+  </div>
+</form>
+<button (click)="nuevo()" class="btn btn-primary">Agregar</button>
+<button (click)="actualizar()" class="btn btn-warning">Modificar</button>
