@@ -8,7 +8,7 @@ export class ProductosService {
   url='http://localhost:3000/productos/'; 
   constructor(private http: HttpClient) { }
   listar() {
-    return this.http.get(`${this.url}listar`);
+    return this.http.get(`${this.url}`);
   }
   nuevo(producto) {
     return this.http.post(`${this.url}crear`, producto);    

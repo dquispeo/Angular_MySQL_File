@@ -2,7 +2,8 @@
   <thead class="thead-dark">
     <tr>
       <th>Id</th>
-      <th>Imagen</th>
+      <th>Imagen(Archivo)</th>
+      <th>Imagen(Ruta)</th>
       <th>Nombre</th>
       <th>Marca</th>
       <th>Cantidad</th>
@@ -15,7 +16,10 @@
     <tr *ngFor="let producto of lista">
       <td>{{producto.id}}</td>
       <td>
-        <img>
+        <img src="{{producto.archivo}}">
+      </td>
+      <td>
+        <img src="{{producto.ruta}}">
       </td>
       <td>{{producto.nombre}}</td>
       <td>{{producto.marca}}</td>
